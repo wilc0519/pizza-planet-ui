@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
 
-    <title>L'ultima Cena Pizzeria! - Create Ingredient</title>
+    <title>L'ultima Cena Pizzeria! - Order details</title>
   </head>
 
   <body>
@@ -49,63 +49,102 @@
       </nav>
     </header>
 
-    <!-- FORM PART -->
+    <!-- Order Detail -->
 
     <div class="container">
-      <!-- Notification Area -->
-
-      <div id="ingredient-alert" class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Great!</h4>
-        <p>Your ingredient was updated successfully</p>
-      </div>
-
       <div class="jumbotron">
-        <h2 class="text-center">Update Ingredient!</h2>
-
-        <form id="ingredient-form">
-          <!-- INGREDIENT DATA -->
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">ID: </label>
-            <div class="col-sm-10">
-              <input id="_id" disabled name="_id" type="text" class="form-control" placeholder="ID" />
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Name: </label>
-            <div class="col-sm-10">
-              <input id="name" required name="name" type="text" class="form-control" placeholder="Name" />
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Price: </label>
-            <div class="col-sm-10">
-              <input
-                id="price"
-                required
-                name="price"
-                type="number"
-                step="0.01"
-                min="0"
-                max="10"
-                class="form-control"
-                placeholder="Price"
-              />
-            </div>
-          </div>
-
-          <!-- ingredient BUTTON -->
-
-          <div class="text-center">
-            <button type="submit" class="btn btn-warning btn-lg">Submit</button>
-          </div>
-        </form>
+        <div id="report"></div>
       </div>
     </div>
 
-    <!-- Optional JavaScript -->
+    <template id="report-template">
+      <h2 id="title" class="text-center">Report</h2>
+      <br />
+
+      <!-- CLIENT DATA -->
+
+      <div id="contact-info">
+
+        <h4>Top clients</h4>
+        <div class="row">
+          <h5><label class="col-sm-3">1:  </label></h5>
+          <h6>{{client.client_name}}</h6>
+          <label class="col-sm-3">DNI:  </label>
+          <h6>{{client.client_dni}}</h6>
+          <label class="col-sm-3">Consumo:  </label>
+          <h6>$ {{client.sum_total}}</h6>
+        </div>
+          
+        <div class="row">
+          <h5><label class="col-sm-3">2:  </label></h5>
+          <h6>{{client2.client_name}}</h6>
+          <label class="col-sm-3">DNI:  </label>
+          <h6>{{client2.client_dni}}</h6>
+          <label class="col-sm-3">Consumo:  </label>
+          <h6>$ {{client2.sum_total}}</h6>
+        </div>
+        
+          <div class="row">
+          <h5><label class="col-sm-3">3:  </label></h5>
+          <h6>{{client3.client_name}}</h6>
+          <label class="col-sm-3">DNI:  </label>
+          <h6>{{client3.client_dni}}</h6>
+          <label class="col-sm-3">Consumo:  </label>
+          <h6>$ {{client3.sum_total}}</h6>
+        </div>
+
+        <hr/>
+
+        <h4>Month with the highest sales</h4>
+        <div class="row">
+          <label class="col-sm-3">Month: </label>
+          <h6>{{month.mes}}</h6>
+        </div>
+
+        <div class="row">
+          <label class="col-sm-3">Total: </label>
+          <h6>$ {{month.total_mes}}</h6>
+        </div>
+        <hr/>
+        <h4>Most required ingredient</h4>
+        <div class="row">
+          <label class="col-sm-3">Id: </label>
+          <h6>{{ingredient.ingredient_id}}</h6>
+        </div>
+        <div class="row">
+          <label class="col-sm-3">Name: </label>
+          <h6>{{ingredient.name}}</h6>
+        </div>
+        <div class="row">
+          <label class="col-sm-3">Quantity: </label>
+          <h6>{{ingredient.mycount}}</h6>
+        </div>
+        <hr/>
+        <h4>Most required beverage</h4>
+        <div class="row">
+          <label class="col-sm-3">Id: </label>
+          <h6>{{beverage.beverage_id}}</h6>
+        </div>
+        <div class="row">
+          <label class="col-sm-3">Name: </label>
+          <h6>{{beverage.name}}</h6>
+        </div>
+        <div class="row">
+          <label class="col-sm-3">Quantity: </label>
+          <h6>{{beverage.mycount}}</h6>
+        </div>
+
+
+
+
+
+       
+      </div>
+
+      <hr />
+
+    </template>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -122,13 +161,12 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.js"
       integrity="sha256-ILqMXUXPam8LdBwbq5W6r1m0NxeP8ydLFqrYN+bMCeI="
       crossorigin="anonymous"
     ></script>
 
-    <script src="/js/ingredient/update-ingredient.js"></script>
+    <script src="/js/report/reports.js"></script>
   </body>
 </html>
